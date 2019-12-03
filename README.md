@@ -17,12 +17,12 @@ Credits to: Loïc Quertenmont, PhD
 - Invited Lecturer
 
 # Program
-Lesson 1: Number representation & python Librairies
-Lesson 2, 3, 4: Solving linear Equations
-Lesson 5, 6: Interpolation & Linear Regression
-Lesson 7: Roots of equation
-Lesson 8, 9: Numerical Differentiation
-Lesson 10: Numerical Integration
-Lesson 11, 12: Introduction to optimization
-
-Reference book : Numerical methods in engineering with python3
+- Lesson 1: Number representation & python Librairies
+- Lesson 2, 3, 4: Solving linear Equations
+- Lesson 5, 6: Interpolation & Linear Regression
+- Lesson 7: Roots of equation
+- Lesson 8, 9: Numerical Differentiation
+- Lesson 10: Numerical Integration
+- Lesson 11, 12: Introduction to optimization
+# Reference book 
+- Numerical methods in engineering with python3
