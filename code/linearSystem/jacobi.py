@@ -13,13 +13,11 @@ def jacobi(a, tol=0.1e-8):
     """
 
     def distance(curr, old):
-        s = 0
-        for u, v in zip(curr, old):
-            s += math.pow(u - v, 2)
-        return s
+        w = curr - old
+        return np.dot(w, w).sum()
 
     n = len(a)
-    x, prev = np.zeros(n), np.ones(n)
+    x, prev = np.zeros(n), None
     while distance(x, prev) > tol:
         prev = x.copy()
         for i in range(n):
