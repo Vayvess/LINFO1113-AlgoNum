@@ -46,8 +46,8 @@ def get_data_sets(start=-5, end=5, step=0.1):
 
 
 # constraints
-u = np.array([0, 1, 2, 3], dtype=float)
-v = np.array([1, 2, 4, 8], dtype=float)
+u = np.array([0, 2, 4], dtype=float)
+v = np.array([1, 4, 16], dtype=float)
 
 # computing
 coefficients = vandermonde(u, v)
