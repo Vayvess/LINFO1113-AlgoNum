@@ -71,9 +71,9 @@ def plot_poly(vx, vy, coeffs, x_lab='x', y_lab='y'):
     plt.show()
 
 
-n = 10
-xData = np.array([i for i in range(-n, n + 1)], dtype='float')
-yData = np.array([i**2 for i in range(-n, n + 1)], dtype='float')
+k = 10
+xData = np.array([i for i in range(-k, k + 1)], dtype='float')
+yData = np.array([i**2 for i in range(-k, k + 1)], dtype='float')
 
 # Degree 1
 coefficients = poly_fit(xData, yData, 1)
