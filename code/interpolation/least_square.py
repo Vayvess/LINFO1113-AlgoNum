@@ -44,10 +44,14 @@ def poly_fit(vx, vy, poly_d):
     for i in range(poly_d + 1):
         for j in range(poly_d + 1):
             a[i, j] = s[i+j]
-    print(a)
-    print(b)
-    print(s)
     return choleski_sol(choleski(a), b)
+
+
+def get_point(x, coeffs):
+    m, y = len(coeffs), 0
+    for i in range(m):
+        y += coeffs[i] * np.power(x, i)
+    return y
 
 
 def plot_poly(vx, vy, coeffs, x_lab='x', y_lab='y'):
@@ -55,10 +59,10 @@ def plot_poly(vx, vy, coeffs, x_lab='x', y_lab='y'):
     x1, x2 = min(vx), max(vx)
     dx = (x2 - x1) / 20.0
 
-    x = np.arange(x1, x2 + dx / 10.0, dx)
-    y = np.zeros((len(x)))
+    x, y = np.arange(x1, x2 + dx / 10.0, dx), 0
     for i in range(m):
         y += coeffs[i] * np.power(x, i)
+
     plt.plot(vx, vy, 'o', x, y, '-')
     plt.title(f'Using a polynomial of degree {m - 1}')
     plt.xlabel(x_lab)
@@ -67,8 +71,8 @@ def plot_poly(vx, vy, coeffs, x_lab='x', y_lab='y'):
     plt.show()
 
 
-xData = np.array([1, 2, 3, 4, 5], dtype='float')
-yData = np.array([1, 4, 9, 16, 25], dtype='float')
+xData = np.array([-4, -3, -2, -1, 1, 2, 3, 4], dtype='float')
+yData = np.array([17, 10, 5, 2, 2, 5, 10, 17], dtype='float')
 
 # Degree 1
 coefficients = poly_fit(xData, yData, 1)
@@ -77,3 +81,9 @@ plot_poly(xData, yData, coefficients)
 # Degree 2
 coefficients = poly_fit(xData, yData, 2)
 plot_poly(xData, yData, coefficients)
+
+# The data i gave correspond to y = x² + 1
+print(coefficients)
+for i in range(4, 100):
+    print(get_point(i, coefficients) == (i**2) + 1)
+
