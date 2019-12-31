@@ -49,14 +49,15 @@ def eval_spline(vx, vy, k, x):
 
     s = find_segment(vx, x)
     h = vx[s] - vx[s + 1]
-    y = ((x - vx[s + 1])**3 / h - (x - vx[s + 1]) * h) * k[s] / 6.0 \
-        - ((x - vx[s])**3 / h - (x - vx[s]) * h) * k[s + 1] / 6.0 \
+    y = ((x - vx[s + 1]) ** 3 / h - (x - vx[s + 1]) * h) * k[s] / 6.0 \
+        - ((x - vx[s]) ** 3 / h - (x - vx[s]) * h) * k[s + 1] / 6.0 \
         + (vy[s] * (x - vx[s + 1]) - vy[s + 1] * (x - vx[s])) / h
     return y
 
 
-x_data = np.array([1, 2, 3, 4, 5], dtype='float32')
-y_data = np.array([2, 4, 6, 8, 10], dtype='float32')
+x_data = np.array([1, 2, 3, 4, 5], dtype='float')
+y_data = np.array([1, 8, 27, 64, 125], dtype='float')
 
 curves = curvatures(x_data, y_data)
-print(eval_spline(x_data, y_data, curves, 25))
+# Should find 216.0 but finds 186.0
+print(eval_spline(x_data, y_data, curves, 6))
