@@ -22,7 +22,7 @@ data_set = []
 for px in np.arange(-5, 5, 0.1):
     data_set.append(lagrange(x_data_set, y_data_set, px))
 
-plt.plot(data_set)
+plt.plot(np.arange(-5, 5, 0.1), data_set)
 
 for i in range(100):
     print(i, lagrange(x_data_set, y_data_set, i))
