@@ -62,6 +62,7 @@ def spd_mx(size):
     return np.hstack((a @ a.transpose(), np.array([randint(1, 99) for _ in range(size)])[:, None]))
 
 
-test = spd_mx(10)
+test = spd_mx(12)
 print(jacobi(test))
 print(jacobi_threaded(test, 2))
+print(jacobi_threaded(test, 4))
