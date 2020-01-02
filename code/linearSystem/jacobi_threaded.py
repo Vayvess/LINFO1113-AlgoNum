@@ -5,7 +5,7 @@ from threading import Thread
 
 # Note: Since jacobi's algorithm is iterative
 # diminish the tolerance to get stricter results ;)
-def jacobi(a, n_threads, tol=0.1e-9):
+def jacobi_threaded(a, n_threads, tol=0.1e-9):
     """
     :param n_threads: numbers of threads desired to compute the row of x
     :param a: [A/b] -> coefficient matrix of A which last column is the independent term b / A -> SDD matrix
@@ -42,4 +42,4 @@ A = np.array([[2, -1, 0, -3],
               [0, -1, 2, 4]], dtype='float')
 
 # Ax = b -> { b = (-3, -1, 4), x = (-1.75, -0.5, 1.75) }
-print(jacobi(A, 2))
+print(jacobi_threaded(A, 2))

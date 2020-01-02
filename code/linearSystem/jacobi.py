@@ -4,7 +4,7 @@ import numpy as np
 
 # Note: Since jacobi's algorithm is iterative
 # diminish the tolerance to get stricter results ;)
-def jacobi(a, tol=0.1e-8):
+def jacobi(a, tol=0.1e-9):
     """
     :param a: [A/b] -> coefficient matrix of A which last column is the independent term b / A -> SDD matrix
     :param tol: float -> the maximum distance between x and x^-1 such as distance(x, x^-1) < tolerance
