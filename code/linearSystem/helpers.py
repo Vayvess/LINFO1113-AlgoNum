@@ -12,5 +12,5 @@ def benchmark(f):
 
 
 def spd_mx(n):
-    a = np.array([[randint(1, 99) for _ in range(n)] for _ in range(n)], dtype='float')
-    return np.hstack((a @ a.transpose(), np.array([randint(1, 99) for _ in range(n)])[:, None]))
+    a = np.array([[randint(1, 16) for _ in range(n)] for _ in range(n)], dtype='float')
+    return np.hstack((a @ a.transpose(), np.array([randint(1, 16) for _ in range(n)])[:, None]))

@@ -6,7 +6,7 @@ import helpers
 
 
 @helpers.benchmark
-def gauss_seidel(a, tol=1.0e-8, lim=69):
+def gauss_seidel(a, lim, tol=1.0e-8):
     def iter_eqs(curr, omg):
         n = len(curr)
         for i in range(n):
@@ -35,14 +35,6 @@ def gauss_seidel(a, tol=1.0e-8, lim=69):
     print('gauss-seidel has failed to converge')
 
 
-A = np.array([[2, -1, 0, -3],
-              [-1, 2, -1, -1],
-              [0, -1, 2, 4]], dtype='float')
-
-
-n = 50
-mx = np.array([[randint(-25, 25) for _ in range(n)] for _ in range(n)], dtype='float')
-mx = mx @ mx.transpose()
-b = np.array([[randint(-25, 25)] for _ in range(n)], dtype='float')
-mx = np.hstack((mx, b))
-print(gauss_seidel(mx))
+mx = helpers.spd_mx(8)
+print(mx)
+print(gauss_seidel(mx, 10000))
