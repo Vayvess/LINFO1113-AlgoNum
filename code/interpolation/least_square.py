@@ -63,7 +63,7 @@ def plot_poly(vx, vy, coeffs, x_lab='x', y_lab='y'):
     for i in range(m):
         y += coeffs[i] * np.power(x, i)
 
-    plt.plot(vx, vy, 'o', x, y, '-')
+    plt.plot(vx, vy, '-', x, y, 'o')
     plt.title(f'Using a polynomial of degree {m - 1}')
     plt.xlabel(x_lab)
     plt.ylabel(y_lab)
@@ -71,9 +71,9 @@ def plot_poly(vx, vy, coeffs, x_lab='x', y_lab='y'):
     plt.show()
 
 
-k = 10
+k = 5
 xData = np.array([i for i in range(-k, k + 1)], dtype='float')
-yData = np.array([i**2 for i in range(-k, k + 1)], dtype='float')
+yData = np.array([i**3 + 2 * i + 3 for i in range(-k, k + 1)], dtype='float')
 
 # Degree 1
 coefficients = poly_fit(xData, yData, 1)
@@ -81,4 +81,8 @@ plot_poly(xData, yData, coefficients)
 
 # Degree 2
 coefficients = poly_fit(xData, yData, 2)
+plot_poly(xData, yData, coefficients)
+
+coefficients = poly_fit(xData, yData, 3)
+print(coefficients)
 plot_poly(xData, yData, coefficients)
