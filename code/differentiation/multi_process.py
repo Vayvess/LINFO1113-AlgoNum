@@ -34,39 +34,6 @@ def merge_sort_me(array):
     return sort(array, True)
 
 
-@benchmark
-def merge_sort(array):
-    def merge_iterative(left, right):
-        if not len(left) or not len(right):
-            return left or right
-
-        result = []
-        i, j = 0, 0
-        while len(result) < len(left) + len(right):
-            if left[i] < right[j]:
-                result.append(left[i])
-                i += 1
-            else:
-                result.append(right[j])
-                j += 1
-            if i == len(left) or j == len(right):
-                result.extend(left[i:] or right[j:])
-                break
-
-        return result
-
-    def sort_iterative(arr):
-        if len(arr) < 2:
-            return arr
-
-        middle = len(arr) // 2
-        left = merge_sort(arr[:middle])
-        right = merge_sort(arr[middle:])
-        return merge_iterative(left, right)
-
-    return sort_iterative(array)
-
-
 def merge_thread(left, right, ascend=True):
     output = []
     while left and right:
@@ -100,7 +67,6 @@ def rand_arr(n):
 
 if __name__ == '__main__':
     testing = rand_arr(1000)
-    print(merge_sort(testing))
     print(merge_sort_me(testing))
     print(merge_sort_threaded(testing, 2))
     print(merge_sort_threaded(testing, 4))
