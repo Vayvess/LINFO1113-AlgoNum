@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 
 # This method is superseded by Ridder's one !
-def regula_falsi(f, x1, x2, tol=1e-9):
+def secant(f, x1, x2, tol=1e-9):
     def compute():
         fx1, fx2 = f(x1), f(x2)
         new = x2 - fx2 * (x2 - x1) / (fx2 - fx1)
@@ -11,10 +11,7 @@ def regula_falsi(f, x1, x2, tol=1e-9):
 
     f1, f2, f3, x3 = compute()
     while f3 > tol:
-        if np.sign(f1) != np.sign(f3):
-            x1, f1 = x3, f3
-        else:
-            x2, f2 = x3, f3
+        x1, x2 = x2, x3
         f1, f2, f3, x3 = compute()
     return x3
 
@@ -31,6 +28,6 @@ def plot_me(f, px, n):
     plt.show()
 
 
-x_point = regula_falsi(fun, 1.5, 5)
+x_point = secant(fun, 1.5, 5)
 print(x_point, fun(x_point))
 plot_me(fun, x_point, 10)
