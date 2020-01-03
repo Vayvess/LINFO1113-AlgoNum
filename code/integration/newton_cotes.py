@@ -34,8 +34,8 @@ newton_cotes_better(fun, panel, 0, interval)
 print(time() - test2)
 
 
-# But in reality, a computer repeat far more than 10**6 this kind of computation
-repeat = 10**6
+# But in reality, a computer repeat far more than 10**6 operation a day
+repeat = 10**5
 t1 = time()
 for _ in range(repeat):
     newton_cotes(fun, panel, 0, interval)
