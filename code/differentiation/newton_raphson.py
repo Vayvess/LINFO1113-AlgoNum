@@ -1,3 +1,7 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+
 def newton_raphson(f, a, b, tol=1.0e-9):
     def df(px):
         return ((f(px + tol) - f(px - tol)) / (2 * tol)) + np.power(tol, 2)
@@ -19,13 +23,22 @@ def newton_raphson(f, a, b, tol=1.0e-9):
             dx = 0.5 * (b - a)
             x = a + dx
         if abs(dx) < tol * max(abs(b), 1.0):
-            print(i)
             return x
     print('Too many iterations in Newton-Raphson')
 
 
 def plot_me(f, n, px):
     vx = np.arange(-n, n + 1, 1)
-    v_func = np.vectorize(f)
-    vy = v_func(vx)
-    print(vy)
+    vy = np.vectorize(f)(vx)
+    plt.plot(vx, vy, '-', px, f(px), 'o')
+    plt.grid(True)
+    plt.show()
+
+
+def fun(x):
+    return x**2 - 9
+
+
+result = newton_raphson(fun, -5, 0)
+print(result)
+plot_me(fun, 10, result)
