@@ -1,6 +1,7 @@
 import numpy as np
 
 
+# I got nothing for now
 def richardson_extra(g, p, h=0.64):
     pass
 
