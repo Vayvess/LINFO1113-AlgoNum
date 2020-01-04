@@ -1,6 +1,3 @@
-import numpy as np
-
-
 def recursive_trapezoid(f, a, b, n=16):
     h, sigma = (b - a) / n, 0.5 * (f(a) + f(b))
     for i in range(1, n):

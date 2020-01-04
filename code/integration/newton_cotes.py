@@ -12,7 +12,7 @@ def newton_cotes(f, n, x_start, x_stop):
 
 
 def newton_cotes_better(f, n, a, b):
-    h, y = (b - a) / n, f(a) * 0.5 + f(b) * 0.5
+    h, y = (b - a) / n, (f(a) + f(b)) * 0.5
     for _ in range(n - 1):
         a += h
         y += f(a)
@@ -23,25 +23,25 @@ def fun(x):
     return x ** 2
 
 
-# Those test might seems like hyper fast
-interval, panel = 10**2, 10**1
-test1 = time()
-newton_cotes(fun, panel, 0, interval)
-print(time() - test1)
-
-test2 = time()
-newton_cotes_better(fun, panel, 0, interval)
-print(time() - test2)
-
-
-# But in reality, a computer repeat far more than 10**6 operation a day
-repeat = 10**5
-t1 = time()
-for _ in range(repeat):
+if __name__ == '__main__':
+    # Those test might seems like hyper fast
+    interval, panel = 10**2, 10**1
+    test1 = time()
     newton_cotes(fun, panel, 0, interval)
-print(time() - t1)
+    print(time() - test1)
 
-t2 = time()
-for _ in range(repeat):
+    test2 = time()
     newton_cotes_better(fun, panel, 0, interval)
-print(time() - t2)
+    print(time() - test2)
+
+    # But in reality, a computer repeat far more than 10**6 operation a day
+    repeat = 10**5
+    t1 = time()
+    for _ in range(repeat):
+        newton_cotes(fun, panel, 0, interval)
+    print(time() - t1)
+
+    t2 = time()
+    for _ in range(repeat):
+        newton_cotes_better(fun, panel, 0, interval)
+    print(time() - t2)
