@@ -33,13 +33,13 @@ if __name__ == '__main__':
     n_times = 2
 
     # y = 2 + 3x + 7x² + 11x³
-    a = [2, 3, 7, 11]
+    y_coefficients = [2, 3, 7, 11]
 
     # y" = 14 + 66x
-    b = derives_polynomial_n_times(n_times, a)
-    print(b)
+    y_n_derivative_coefficients = derives_polynomial_n_times(n_times, y_coefficients)
+    print(y_n_derivative_coefficients)
 
-    # Eval
+    # Evaluation
     px = 2
-    print(polynomial_evaluation(b, px))
+    print(polynomial_evaluation(y_n_derivative_coefficients, px))
     print(dfn(func, px, n_times))
