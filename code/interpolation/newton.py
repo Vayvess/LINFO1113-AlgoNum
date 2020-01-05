@@ -19,9 +19,9 @@ def eval_poly(a, x_data, x):
     return p
 
 
-x_data_set = np.array([-2, 1, 4, -1, 3, -4], dtype='float')
-y_data_set = np.array([-1, 2, 59, 4, 24, -53], dtype='float')
+x_data_set = np.array([2, 3, 4], dtype='float')
+y_data_set = np.array([4, 9, 16], dtype='float')
 
 coeffs = coefficients(x_data_set, y_data_set)
 print(coeffs)
-print(eval_poly(coeffs, x_data_set, 4))
+print(eval_poly(coeffs, x_data_set, 6))

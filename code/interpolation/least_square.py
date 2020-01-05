@@ -71,18 +71,19 @@ def plot_poly(vx, vy, coeffs, x_lab='x', y_lab='y'):
     plt.show()
 
 
-c = 5
-xData = np.array([i for i in range(-c, c + 1)], dtype='float')
-yData = np.array([i**3 + 2 * i + 3 for i in range(-c, c + 1)], dtype='float')
+if __name__ == '__main__':
+    c = 5
+    xData = np.array([i for i in range(-c, c + 1)], dtype='float')
+    yData = np.array([i**3 + 2 * i + 3 for i in range(-c, c + 1)], dtype='float')
 
-# Degree 1
-coefficients = poly_fit(xData, yData, 1)
-plot_poly(xData, yData, coefficients)
+    # Degree 1
+    coefficients = poly_fit(xData, yData, 1)
+    plot_poly(xData, yData, coefficients)
 
-# Degree 2
-coefficients = poly_fit(xData, yData, 2)
-plot_poly(xData, yData, coefficients)
+    # Degree 2
+    coefficients = poly_fit(xData, yData, 2)
+    plot_poly(xData, yData, coefficients)
 
-coefficients = poly_fit(xData, yData, 3)
-print(coefficients)
-plot_poly(xData, yData, coefficients)
+    coefficients = poly_fit(xData, yData, 3)
+    print(coefficients)
+    plot_poly(xData, yData, coefficients)
