@@ -31,7 +31,7 @@ h = 0.05
 X, Y = euler_book(F, x, y, xStop, h)
 yExact = 100.0 * X - 5.0 * X ** 2 + 990.0 * (np.exp(-0.1 * X) - 1.0)
 
-# a is a constant as we know f(a) = 0 and f'(a) = 1 ->  y is the numpy array containing those value
+# a, a = 0 is a constant as we know f(a) = 0 and f'(a) = 1 ->  y is the numpy array containing those value
 # Y[:, 1] : Y[:, 0] -> [f(x) for x in X] where f is unknown, Y[:, n] -> [f'prime at order n'(x) for x in X]
 plt.plot(X, yExact, '-', X, Y[:, 0], 'o')
 plt.grid(True)
